@@ -1,4 +1,4 @@
-import { destinationInfo } from "../client/js/destinationInfo";
+import { destinationInfo } from "../client/js/app";
 
 describe("destinationInfo", () => {
   test("destinationInfo should be defined", () => {
