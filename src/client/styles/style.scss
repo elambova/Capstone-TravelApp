@@ -1,0 +1,137 @@
+/* Global */
+body {
+  font: 25px "Comic Neue", cursive;
+  height: 100vh;
+  background-color: #fff;
+  background-image: linear-gradient(to bottom left, #ddd, rgb(158, 229, 241));
+}
+
+/* Header */
+#header {
+  text-align: center;
+  padding: 50px 20px;
+  font-family: "Girassol", cursive;
+}
+
+/* container when data is add in input and textarea field, with button data is post to WeatherJournalApp*/
+
+.container {
+  width: 100%;
+  margin: 10px auto;
+}
+
+#travel {
+  div {
+    margin: 10px auto;
+    display: flex;
+    width: 60%;
+    align-items: center;
+
+    label {
+      width: 40%;
+      text-align: right;
+    }
+    .error {
+      border: 1px solid #e00202;
+      background-color: #f39393;
+    }
+
+    #city,
+    #date-start,
+    #date-end {
+      width: 50%;
+    }
+
+    #city,
+    #date-start,
+    #date-end {
+      margin: 0 auto 10px;
+      border-radius: 10px;
+      padding: 10px 5px;
+      border: 1px solid #000;
+      font: 25px "Comic Neue", cursive;
+    }
+  }
+
+  #destination-info-btn {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px 5px;
+    background-color: transparent;
+    border: 1px solid #000;
+    font: 25px "Comic Neue", cursive;
+  }
+}
+
+#result {
+  margin: 10px auto;
+
+  #loading {
+    display: none;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    top: calc(100% / 2 - 50px);
+    left: calc(100% / 2 - 50px);
+    z-index: 9999999;
+  }
+  .box {
+    display: none;
+    flex-direction: row;
+    margin: 0 auto;
+    align-items: center;
+
+    & > div {
+      width: 50%;
+
+      & > p {
+        line-height: 45px;
+      }
+
+      #travel-destination {
+        width: 100%;
+      }
+    }
+
+    #city-result,
+    #tags {
+      text-transform: capitalize;
+    }
+
+    #city-result,
+    #country,
+    #long,
+    #lat,
+    #days-away,
+    #trip-length,
+    #high-temp,
+    #low-temp {
+      font-weight: bold;
+    }
+    #forecast-icon {
+      width: 40px;
+      height: 40px;
+      vertical-align: middle;
+    }
+  }
+}
+
+#add-destination {
+  display: none;
+  width: 300px;
+  margin: 10px auto;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Media */
+@media (min-width: 901px) {
+  .container {
+    width: 70%;
+  }
+}
