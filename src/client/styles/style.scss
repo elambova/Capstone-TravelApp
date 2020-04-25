@@ -16,7 +16,7 @@ body {
 /* container when data is add in input and textarea field, with button data is post to WeatherJournalApp*/
 
 .container {
-  width: 100%;
+  width: 70%;
   margin: 10px auto;
 }
 
@@ -24,12 +24,14 @@ body {
   div {
     margin: 10px auto;
     display: flex;
-    width: 60%;
+    width: 90%;
+    flex-direction: row;
     align-items: center;
 
     label {
       width: 40%;
-      text-align: right;
+      margin-bottom: 10px;
+      text-align: center;
     }
     .error {
       border: 1px solid #e00202;
@@ -72,20 +74,21 @@ body {
   #loading {
     display: none;
     position: relative;
-    width: 50px;
-    height: 50px;
-    top: calc(100% / 2 - 50px);
-    left: calc(100% / 2 - 50px);
+    width: 70px;
+    height: 70px;
+    top: calc(100% / 2 - 70px);
+    left: calc(100% / 2 - 70px);
     z-index: 9999999;
   }
   .box {
     display: none;
-    flex-direction: row;
+    text-align: center;
+    flex-direction: column-reverse;
     margin: 0 auto;
     align-items: center;
 
     & > div {
-      width: 50%;
+      width: 100%;
 
       & > p {
         line-height: 45px;
@@ -108,9 +111,11 @@ body {
     #days-away,
     #trip-length,
     #high-temp,
-    #low-temp {
+    #low-temp,
+    #tags {
       font-weight: bold;
     }
+
     #forecast-icon {
       width: 40px;
       height: 40px;
@@ -132,6 +137,26 @@ body {
 /* Media */
 @media (min-width: 901px) {
   .container {
-    width: 70%;
+    width: 100%;
+  }
+  #travel div {
+    width: 60%;
+
+    label {
+      text-align: right;
+    }
+  }
+  #result .box {
+    flex-direction: row;
+
+    & > div {
+      width: 50%;
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  #travel div {
+    flex-direction: column;
   }
 }
