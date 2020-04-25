@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 /* Empty JS object to act as endpoint for all routes */
-projectData = [];
+let projectData = [];
 
 const express = require("express");
 
@@ -162,3 +162,4 @@ app.get("/all", allWeatherData);
 function allWeatherData(request, response) {
   response.send(projectData);
 }
+module.exports = app;
