@@ -149,17 +149,11 @@ app.get("/getInfo", async (req, res, next) => {
       tags: pixabay.hits[0].tags,
     };
 
-    projectData.push({ ...data, ...weather });
-    res.send(projectData);
+    // projectData.push({ ...data, ...weather });
+    res.send({ ...data, ...weather });
   } catch (error) {
     console.log(error);
   }
 });
 
-// GET roure
-app.get("/all", allWeatherData);
-
-function allWeatherData(request, response) {
-  response.send(projectData);
-}
 module.exports = app;
