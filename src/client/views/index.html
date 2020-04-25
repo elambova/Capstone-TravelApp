@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header id="header">
+        <h1>Travel App</h1>
+    </header>
+    <main>
+        <section class="container">
+            <form action="#search" method="GET" id="travel">
+                <div>
+                    <label for="city">Destination</label>
+                    <input type="text" required placeholder="Please enter city!" name="city" id="city">
+                </div>
+                <div>
+                    <label for="date-start">Arrival Date:</label>
+                    <input type="date" name="arrival_date" required id="date-start">
+                </div>
+                <div>
+                    <label for="date-end">Departure Date:</label>
+                    <input type="date" name="departure_date" required id="date-end">
+                </div>
+                <input type="submit" id="destination-info-btn" value="Info for destination!">
+            </form>
+            <div id="result">
+                <img alt="Loading" id="loading" />
+                <div class="box">
+                    <div>
+                        <p>City: <span id="city-result"></span></p>
+                        <p>Country: <span id="country"></span></p>
+                        <p>Longitude: <span id="long"></span></p>
+                        <p>Latitude: <span id="lat"></span></p>
+                        <p>Days Away: <span id="days-away"></span></p>
+                        <p>Trip Length: <span id="trip-length"></span></p>
+                        <p>Temperature: High: <span id="high-temp"></span> and Low: <span id="low-temp"></span> </p>
+                        <p>Forecast: <img alt="" id="forecast-icon"><span id="forecast"></span></p>
+                    </div>
+                    <div>
+                        <img alt="" id="travel-destination">
+                        <p id="tags"></p>
+                    </div>
+
+                </div>
+            </div>
+            <!-- <button id="add-destination">Add to my travel list</button> -->
+        </section>
+    </main>
+
+</body>
+
+</html>
