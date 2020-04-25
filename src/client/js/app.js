@@ -19,7 +19,7 @@ function destinationInfo() {
     })
     .then((data) => {
       // console.log(data);
-      Client.updateUI();
+      Client.updateUI(data);
     })
     .catch((err) => console.error(err));
 }

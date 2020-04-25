@@ -1,10 +1,6 @@
 // updateUI function using the keyword async and updates the allData we have, and attach to selected elements
-const updateUI = async () => {
-  const req = await fetch("http://localhost:8081/all");
+const updateUI = async (data) => {
   try {
-    const response = await req.json();
-    const data = response[response.length - 1];
-
     document.getElementById("loading").style.display = "none";
     document.querySelector(".box").style.display = "flex";
     // document.getElementById("add-destination").style.display = "block";
