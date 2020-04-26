@@ -45,7 +45,7 @@ function listening() {
 
 // Keys for access to APIs
 const keys = {
-  geoUserName: process.env.USERNAME_GEO,
+  geoUserName: process.env.GEO_USERNAME,
   weatherKey: process.env.WEATHERBIT_API_KEY,
   pixabayKey: process.env.PIXABAY_API_KEY,
 };
