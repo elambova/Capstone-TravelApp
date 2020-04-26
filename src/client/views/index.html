@@ -38,10 +38,13 @@
                         <p>Country: <span id="country"></span></p>
                         <p>Longitude: <span id="long"></span></p>
                         <p>Latitude: <span id="lat"></span></p>
+                        <p>Arrival Date: <span id="arrival-date-result"></span></p>
+                        <p>Departure Date: <span id="departure-date-result"></span></p>
                         <p>Days Away: <span id="days-away"></span></p>
                         <p>Trip Length: <span id="trip-length"></span></p>
-                        <p>Temperature: High: <span id="high-temp"></span> and Low: <span id="low-temp"></span> </p>
-                        <p>Forecast: <img alt="" id="forecast-icon"><span id="forecast"></span></p>
+                        <p>Forecast Today: <img alt="" id="forecast-icon"><span id="forecast"></span></p>
+                        <p>Temperature Today: High: <span id="high-temp"></span> and Low: <span id="low-temp"></span>
+                        </p>
                     </div>
                     <div>
                         <img alt="" id="travel-destination">
@@ -49,11 +52,11 @@
                     </div>
 
                 </div>
+                <div id="temp-for-multiple-days"></div>
             </div>
-            <!-- <button id="add-destination">Add to my travel list</button> -->
         </section>
     </main>
-    <!-- <script>
+    <script>
         // Check that service workers are supported
         if ('serviceWorker' in navigator) {
             // Use the window load event to keep the page load performant
@@ -61,7 +64,7 @@
                 navigator.serviceWorker.register('/service-worker.js');
             });
         }
-    </script> -->
+    </script>
 </body>
 
 </html>
