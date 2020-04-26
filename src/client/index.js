@@ -19,8 +19,5 @@ document.getElementById("travel").addEventListener("submit", (e) => {
   destinationInfo();
 });
 
-// Add event listener to button add-destination. When button is clicked callback function destinationInfo will execute
-// document.getElementById("add-destination").addEventListener("click", addTravel);
-
 // export js files
 export { destinationInfo, updateUI };
