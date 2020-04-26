@@ -65,3 +65,4 @@ The following extend have been implemented:
 - Add end date and display length of trip.
 - Pull in an image for the country from Pixabay API when the entered location brings up no results (good for obscure localities).
 - Incorporate icons into forecast.
+- Instead of just pulling a single day forecast, pull the forecast for multiple days.
