@@ -9,7 +9,7 @@ const express = require("express");
 
 const app = express();
 
-//bodyParser middleware
+//middleware
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -19,6 +19,7 @@ app.use(express.static("dist"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// cors
 app.use(cors());
 
 // const async = require("express-async-await");
@@ -71,7 +72,7 @@ const weatherApiConnect = async (lat, lng) => {
 
   try {
     const weatherData = await weather.json();
-    return weatherData.data[weatherData.data.length - 1];
+    return weatherData.data;
   } catch (error) {
     console.log(error);
   }
@@ -121,12 +122,13 @@ const travelDate = (start, end) => {
 
   const result = {
     daysUntilTrip: differenceInDays.toFixed(0),
-    tripLength: differenceInVacationInDays,
+    tripLength: differenceInVacationInDays.toFixed(0),
   };
 
   return result;
 };
 
+// GET route who connect to all 3 APIs and return data
 app.get("/getInfo", async (req, res, next) => {
   try {
     const geonames = await geonamesApiConnect(req.query.city);
@@ -156,4 +158,13 @@ app.get("/getInfo", async (req, res, next) => {
   }
 });
 
+// POST Route save all data from GET request /getInfo
+app.post("/saveData", saveData);
+
+function saveData(request, response) {
+  projectData.push(request.body);
+  response.send(projectData);
+}
+
+// export app
 module.exports = app;
