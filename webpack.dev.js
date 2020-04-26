@@ -39,11 +39,6 @@ module.exports = {
       filename: "./index.html",
       favicon: "./src/client/media/favicon.ico",
     }),
-    new HtmlWebPackPlugin({
-      template: "./src/client/views/todoList.html",
-      filename: "./todoList.html",
-      favicon: "./src/client/media/favicon.ico",
-    }),
     new CleanWebpackPlugin({
       // Simulate the removal of files
       dry: true,

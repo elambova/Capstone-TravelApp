@@ -4,7 +4,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-// const WorkboxPlugin = require("workbox-webpack-plugin");
+const WorkboxPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
   entry: "./src/client/index.js",
@@ -43,13 +43,8 @@ module.exports = {
       filename: "./index.html",
       favicon: "./src/client/media/favicon.ico",
     }),
-    new HtmlWebPackPlugin({
-      template: "./src/client/views/todoList.html",
-      filename: "./todoList.html",
-      favicon: "./src/client/media/favicon.ico",
-    }),
     new MiniCssExtractPlugin({ filename: "[name].css" }),
-    // new WorkboxPlugin.GenerateSW(),
+    new WorkboxPlugin.GenerateSW(),
   ],
   node: {
     fs: "empty",
