@@ -15,6 +15,7 @@ loadingGif.src = loading;
 
 const printBtn = document.getElementById("print");
 window.onload = () => {
+  console.log(localStorage);
   if (localStorage.destination.length > 2) {
     printBtn.style.display = "block";
     destinationInfo();
