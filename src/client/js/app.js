@@ -44,7 +44,9 @@ function destinationInfo() {
       })
       .then((data) => {
         postData(`${localhost}saveData`, data);
-        console.log(dataStorage);
+        city.value = dataStorage.city;
+        dateStart.value = dataStorage.start;
+        dateEnd.value = dataStorage.end;
         Client.updateUI(dataStorage);
       })
       .catch((err) => console.error(err));
