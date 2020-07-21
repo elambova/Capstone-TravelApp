@@ -7,7 +7,10 @@ const TerserPlugin = require("terser-webpack-plugin");
 const WorkboxPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
-  entry: "./src/client/index.js",
+  entry: {
+    main: "./src/client/index.js",
+    todolist: "./src/client/todoList.js",
+  },
   mode: "production",
   output: {
     libraryTarget: "var",
@@ -42,6 +45,12 @@ module.exports = {
       template: "./src/client/views/index.html",
       filename: "./index.html",
       favicon: "./src/client/media/favicon.ico",
+      chunks: ["main"],
+    }),
+    new HtmlWebPackPlugin({
+      template: "./src/client/views/todoList.html",
+      filename: "./todoList.html",
+      chunks: ["todolist"],
     }),
     new MiniCssExtractPlugin({ filename: "[name].css" }),
     new WorkboxPlugin.GenerateSW(),

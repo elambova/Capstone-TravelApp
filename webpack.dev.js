@@ -4,7 +4,10 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: "./src/client/index.js",
+  entry: {
+    main: "./src/client/index.js",
+    todolist: "./src/client/todoList.js",
+  },
   mode: "development",
   devtool: "source-map",
   stats: "verbose",
@@ -38,6 +41,12 @@ module.exports = {
       template: "./src/client/views/index.html",
       filename: "./index.html",
       favicon: "./src/client/media/favicon.ico",
+      chunks: ["main"],
+    }),
+    new HtmlWebPackPlugin({
+      template: "./src/client/views/todoList.html",
+      filename: "./todoList.html",
+      chunks: ["todolist"],
     }),
     new CleanWebpackPlugin({
       // Simulate the removal of files
