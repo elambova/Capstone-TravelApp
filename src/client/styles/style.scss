@@ -2,8 +2,28 @@
 body {
   font: 25px "Comic Neue", cursive;
   height: 100vh;
-  background-color: #9ee5f1;
-  // background-image: linear-gradient(to bottom right, #9ee5f1, #ddd);
+  background-color: #ace3ec;
+  background-image: linear-gradient(to top bottom, #9ee5f1, #ddd);
+}
+
+// Print button
+#print {
+  display: none;
+  background-color: transparent;
+  box-shadow: 1px 1px 10px #61acb8;
+  font-weight: bold;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#print:hover {
+  background-color: #61acb8;
+  border-color: #61acb8;
+  color: #fff;
 }
 
 /* Header */
@@ -92,12 +112,13 @@ body {
     display: none;
     text-align: center;
     flex-direction: column-reverse;
-    margin: 0 auto;
+    margin: 0 auto 50px;
     align-items: center;
 
     & > div {
       width: 100%;
-      height: 450px;
+      max-height: 450px;
+      margin-bottom: 20px;
 
       & > p {
         line-height: 45px;
@@ -200,5 +221,11 @@ body {
 @media (min-width: 600px) and (max-width: 900px) {
   #travel div {
     flex-direction: column;
+  }
+}
+
+@media print {
+  #print {
+    display: none;
   }
 }
