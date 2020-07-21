@@ -3,12 +3,15 @@
 const city = document.getElementById("city");
 const dateStart = document.getElementById("date-start");
 const dateEnd = document.getElementById("date-end");
+const defaultCity = city.value.length !== 0 ? city.value : "destination";
 
-let destinationsArray = localStorage.getItem("destination")
-  ? JSON.parse(localStorage.getItem("destination"))
+let destinationsArray = localStorage.getItem(defaultCity)
+  ? JSON.parse(localStorage.getItem(defaultCity))
   : [];
 
-const dataStorage = JSON.parse(localStorage.getItem("destination"));
+localStorage.setItem(defaultCity, JSON.stringify(destinationsArray));
+
+const dataStorage = JSON.parse(localStorage.getItem(defaultCity));
 
 const localhost = "http://localhost:8081/";
 
@@ -35,7 +38,8 @@ const postData = async (url = "", data = {}) => {
 function destinationInfo() {
   // loading image
   document.getElementById("loading").style.display = "block";
-  if (city.value.trim().length === 0 && dataStorage.length != 0) {
+  console.log(dataStorage);
+  if (dataStorage.length > 0) {
     fetch(
       `${localhost}getInfo?city=${city.value}&start=${dateStart.value}&end=${dateEnd.value}`
     )
@@ -50,23 +54,26 @@ function destinationInfo() {
         Client.updateUI(dataStorage);
       })
       .catch((err) => console.error(err));
-  } else if (city.value.trim().length !== 0) {
-    city.hasAttribute("class") ? city.removeAttribute("class") : null;
-    fetch(
-      `${localhost}getInfo?city=${city.value}&start=${dateStart.value}&end=${dateEnd.value}`
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        postData(`${localhost}saveData`, data);
-        localStorage.setItem("destination", JSON.stringify(data));
-        Client.updateUI(data);
-      })
-      .catch((err) => console.error(err));
   } else {
-    city.classList.add("error");
-    return;
+    if (city.value.trim().length !== 0) {
+      city.hasAttribute("class") ? city.removeAttribute("class") : null;
+      fetch(
+        `${localhost}getInfo?city=${city.value}&start=${dateStart.value}&end=${dateEnd.value}`
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          postData(`${localhost}saveData`, data);
+          destinationsArray.push(data);
+          localStorage.setItem(defaultCity, JSON.stringify(destinationsArray));
+          Client.updateUI(data);
+        })
+        .catch((err) => console.error(err));
+    } else {
+      city.classList.add("error");
+      return;
+    }
   }
 }
 
