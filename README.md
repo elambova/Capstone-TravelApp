@@ -67,3 +67,4 @@ The following extend have been implemented:
 - Incorporate icons into forecast.
 - Instead of just pulling a single day forecast, pull the forecast for multiple days.
 - Use Local Storage to save the data so that when they close, then revisit the page, their information is still there.
+- Allow user to Print their trip and/or export to PDF.
