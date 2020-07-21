@@ -66,3 +66,4 @@ The following extend have been implemented:
 - Pull in an image for the country from Pixabay API when the entered location brings up no results (good for obscure localities).
 - Incorporate icons into forecast.
 - Instead of just pulling a single day forecast, pull the forecast for multiple days.
+- Use Local Storage to save the data so that when they close, then revisit the page, their information is still there.
