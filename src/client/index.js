@@ -13,6 +13,12 @@ import loading from "./media/loading.gif";
 const loadingGif = document.getElementById("loading");
 loadingGif.src = loading;
 
+window.onload = () => {
+  if (localStorage.destination.length > 2) {
+    destinationInfo();
+  }
+};
+
 // Add event listener to form travel. When button is clicked callback function destinationInfo will execute
 document.getElementById("travel").addEventListener("submit", (e) => {
   e.preventDefault();
