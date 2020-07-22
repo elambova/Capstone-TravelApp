@@ -24,6 +24,7 @@ app.use(cors());
 
 // const async = require("express-async-await");
 const fetch = require("node-fetch");
+const { type } = require("os");
 
 app.get("/", function (req, res) {
   // for production
@@ -149,6 +150,7 @@ app.get("/getInfo", async (req, res, next) => {
       end: req.query.end,
       picture: pixabay.hits[0].webformatURL,
       tags: pixabay.hits[0].tags,
+      id: new Date().valueOf(),
     };
 
     // projectData.push({ ...data, ...weather });
@@ -163,6 +165,27 @@ app.post("/saveData", saveData);
 
 function saveData(request, response) {
   projectData.push(request.body);
+  response.send(projectData);
+}
+
+// GET Route return all data from POST request /savedData
+app.get("/all", allData);
+
+function allData(request, response) {
+  response.send(projectData);
+}
+
+// DELETE Route delete trip with this id
+app.delete("/:id", deleteTrip);
+
+function deleteTrip(request, response) {
+  let id = parseInt(request.params.id.slice(1));
+
+  let index = projectData.findIndex(function (o) {
+    return o.id === id;
+  });
+
+  if (index !== -1) projectData.splice(index, 1);
   response.send(projectData);
 }
 
