@@ -3,15 +3,14 @@
 const city = document.getElementById("city");
 const dateStart = document.getElementById("date-start");
 const dateEnd = document.getElementById("date-end");
-const defaultCity = city.value.length !== 0 ? city.value : "destination";
 
-let destinationsArray = localStorage.getItem(defaultCity)
-  ? JSON.parse(localStorage.getItem(defaultCity))
+let destinationsArray = localStorage.getItem("destination")
+  ? JSON.parse(localStorage.getItem("destination"))
   : [];
 
-localStorage.setItem(defaultCity, JSON.stringify(destinationsArray));
+localStorage.setItem("destination", JSON.stringify(destinationsArray));
 
-const dataStorage = JSON.parse(localStorage.getItem(defaultCity));
+const dataStorage = JSON.parse(localStorage.getItem("destination"));
 
 const localhost = "http://localhost:8081/";
 
@@ -34,11 +33,32 @@ const postData = async (url = "", data = {}) => {
   }
 };
 
-// destinationInfo function collect functions above starting from getData and wiht Promises (and key word then) add postData and updateUI.
 function destinationInfo() {
   // loading image
   document.getElementById("loading").style.display = "block";
-  console.log(dataStorage);
+
+  if (city.value.trim().length !== 0) {
+    city.hasAttribute("class") ? city.removeAttribute("class") : null;
+    fetch(
+      `${localhost}getInfo?city=${city.value}&start=${dateStart.value}&end=${dateEnd.value}`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        Client.updateUI(data);
+      })
+      .catch((err) => console.error(err));
+  } else {
+    city.classList.add("error");
+    return;
+  }
+}
+
+// destinationSave function collect functions above starting from getData and wiht Promises (and key word then) add postData and updateUI.
+function destinationSave() {
+  // loading image
+  document.getElementById("loading").style.display = "block";
   if (dataStorage.length > 0) {
     fetch(
       `${localhost}getInfo?city=${city.value}&start=${dateStart.value}&end=${dateEnd.value}`
@@ -48,9 +68,9 @@ function destinationInfo() {
       })
       .then((data) => {
         postData(`${localhost}saveData`, data);
-        city.value = dataStorage.city;
-        dateStart.value = dataStorage.start;
-        dateEnd.value = dataStorage.end;
+        city.value = dataStorage[0].city;
+        dateStart.value = dataStorage[0].start;
+        dateEnd.value = dataStorage[0].end;
         Client.updateUI(dataStorage);
       })
       .catch((err) => console.error(err));
@@ -66,7 +86,10 @@ function destinationInfo() {
         .then((data) => {
           postData(`${localhost}saveData`, data);
           destinationsArray.push(data);
-          localStorage.setItem(defaultCity, JSON.stringify(destinationsArray));
+          localStorage.setItem(
+            "destination",
+            JSON.stringify(destinationsArray)
+          );
           Client.updateUI(data);
         })
         .catch((err) => console.error(err));
@@ -77,4 +100,4 @@ function destinationInfo() {
   }
 }
 
-export { destinationInfo };
+export { destinationInfo, destinationSave };
