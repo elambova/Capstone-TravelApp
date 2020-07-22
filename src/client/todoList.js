@@ -3,6 +3,6 @@ import "./styles/style.scss";
 
 import { listTrip } from "./js/listTrip";
 
-listTrip(localStorage.getItem("destination"));
+listTrip();
 
 export { listTrip };
