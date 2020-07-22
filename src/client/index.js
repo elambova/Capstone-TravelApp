@@ -1,5 +1,5 @@
 // import js files
-import { destinationInfo } from "./js/app";
+import { destinationInfo, destinationSave } from "./js/app";
 import { updateUI } from "./js/updateUI";
 
 // import css/scss files
@@ -15,18 +15,28 @@ loadingGif.src = loading;
 
 const printBtn = document.getElementById("print");
 window.onload = () => {
-  console.log(localStorage);
-  if (localStorage.destination.length > 2) {
+  if (
+    localStorage.getItem("destination") &&
+    localStorage.getItem("destination").length > 2
+  ) {
     printBtn.style.display = "block";
     destinationInfo();
   }
 };
 
 // Add event listener to form travel. When button is clicked callback function destinationInfo will execute
+document
+  .getElementById("destination-info-btn")
+  .addEventListener("click", (e) => {
+    e.preventDefault();
+    destinationInfo();
+  });
+
+// Add event listener to form travel. When button is clicked callback function destinationInfo will execute
 document.getElementById("travel").addEventListener("submit", (e) => {
   e.preventDefault();
-  destinationInfo();
+  destinationSave();
 });
 
 // export js files
-export { destinationInfo, updateUI };
+export { destinationInfo, destinationSave, updateUI };
