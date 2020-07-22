@@ -30,7 +30,10 @@
                     <label for="date-end">Departure Date:</label>
                     <input type="date" name="departure_date" required id="date-end">
                 </div>
-                <input type="submit" id="destination-info-btn" value="Info for destination!">
+                <div class="buttons">
+                    <input type="button" id="destination-info-btn" value="Info for destination!">
+                    <input type="submit" id="destination-save-btn" value="Save destination!">
+                </div>
             </form>
             <div id="result">
                 <img alt="Loading" id="loading" />
@@ -58,7 +61,7 @@
             </div>
         </section>
     </main>
-    <script>
+    <!-- <script>
         // Check that service workers are supported
         if ('serviceWorker' in navigator) {
             // Use the window load event to keep the page load performant
@@ -66,7 +69,7 @@
                 navigator.serviceWorker.register('/service-worker.js');
             });
         }
-    </script>
+    </script> -->
 </body>
 
 </html>
