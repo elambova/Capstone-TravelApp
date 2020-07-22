@@ -78,20 +78,25 @@ body {
       font: 25px "Comic Neue", cursive;
     }
   }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  #destination-info-btn {
-    display: block;
-    margin: 10px auto;
-    text-align: center;
-    width: 300px;
-    border-radius: 10px;
-    padding: 10px 5px;
-    background-color: transparent;
-    border: 1px solid #000;
-    font: 25px "Comic Neue", cursive;
+    #destination-info-btn,
+    #destination-save-btn {
+      margin: 10px;
+      text-align: center;
+      width: 300px;
+      border-radius: 10px;
+      padding: 10px 5px;
+      background-color: transparent;
+      border: 1px solid #000;
+      font: 25px "Comic Neue", cursive;
 
-    &:hover {
-      background-color: #ddd;
+      &:hover {
+        background-color: #ddd;
+      }
     }
   }
 }
