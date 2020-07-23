@@ -6,18 +6,40 @@ body {
   background-image: linear-gradient(to top bottom, #9ee5f1, #ddd);
 }
 
+// Button TODO and Button BACK
+.btn {
+  background-color: transparent;
+  box-shadow: 1px 1px 10px #61acb8;
+  // font-weight: bold;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  font: bold 15px "Comic Neue", cursive;
+  vertical-align: middle;
+}
+
+.icon {
+  text-shadow: 1px 1px 1px #000;
+}
+.star {
+  color: gold;
+}
+
 // Print button
 #print {
   display: none;
   background-color: transparent;
   box-shadow: 1px 1px 10px #61acb8;
-  font-weight: bold;
+  // font-weight: bold;
   border: 1px solid #fff;
   border-radius: 10px;
   padding: 10px;
   position: absolute;
   top: 10px;
   right: 10px;
+  font: bold 15px "Comic Neue", cursive;
 }
 
 #print:hover {
