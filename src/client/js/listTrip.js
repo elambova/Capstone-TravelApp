@@ -28,11 +28,30 @@ const listTrip = () => {
     .then((data) => {
       data.map((item) => {
         const li = document.createElement("li");
+        const holder = document.createElement("div");
+        const city = document.createElement("p");
+        const dateList = document.createElement("ul");
+        const startDate = document.createElement("li");
+        const endDate = document.createElement("li");
         const removeBtn = document.createElement("button");
 
-        li.innerHTML = item.city;
+        city.innerHTML = item.city;
+
+        startDate.innerHTML = "Arrival Date: " + item.start;
+        endDate.innerHTML = "Departure Date: " + item.end;
+
         removeBtn.innerHTML = "X";
+        removeBtn.title = "Remove trip";
+
+        dateList.appendChild(startDate);
+        dateList.appendChild(endDate);
+
+        holder.appendChild(city);
+        holder.appendChild(dateList);
+
+        li.appendChild(holder);
         li.appendChild(removeBtn);
+
         button(removeBtn, item.id);
 
         list.appendChild(li);
