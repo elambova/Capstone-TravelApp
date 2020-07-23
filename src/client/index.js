@@ -1,5 +1,9 @@
 // import js files
-import { destinationInfo, destinationSave } from "./js/app";
+import {
+  destinationInfo,
+  destinationInfoLocalStorage,
+  destinationSave,
+} from "./js/app";
 import { updateUI } from "./js/updateUI";
 
 // import css/scss files
@@ -20,7 +24,7 @@ window.onload = () => {
     localStorage.getItem("destination").length > 2
   ) {
     printBtn.style.display = "block";
-    destinationInfo();
+    destinationInfoLocalStorage();
   }
 };
 
@@ -39,4 +43,9 @@ document.getElementById("travel").addEventListener("submit", (e) => {
 });
 
 // export js files
-export { destinationInfo, destinationSave, updateUI };
+export {
+  destinationInfo,
+  destinationInfoLocalStorage,
+  destinationSave,
+  updateUI,
+};
