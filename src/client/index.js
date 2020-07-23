@@ -17,13 +17,11 @@ import loading from "./media/loading.gif";
 const loadingGif = document.getElementById("loading");
 loadingGif.src = loading;
 
-const printBtn = document.getElementById("print");
 window.onload = () => {
   if (
     localStorage.getItem("destination") &&
     localStorage.getItem("destination").length > 2
   ) {
-    printBtn.style.display = "block";
     destinationInfoLocalStorage();
   }
 };
