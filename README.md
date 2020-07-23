@@ -68,3 +68,5 @@ The following extend have been implemented:
 - Instead of just pulling a single day forecast, pull the forecast for multiple days.
 - Use Local Storage to save the data so that when they close, then revisit the page, their information is still there.
 - Allow user to Print their trip and/or export to PDF.
+- Allow the user to add a todo list and/or packing list for their trip.
+- Allow the user to remove the trip.
