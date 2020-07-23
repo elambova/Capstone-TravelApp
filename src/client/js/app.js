@@ -62,7 +62,7 @@ function destinationInfoLocalStorage() {
   city.value = dataStorage[last].city;
   dateStart.value = dataStorage[last].start;
   dateEnd.value = dataStorage[last].end;
-  Client.updateUI(dataStorage);
+  Client.updateUI(dataStorage[last]);
 }
 
 // destinationSave function collect functions above starting from getData and wiht Promises (and key word then) add postData and updateUI.
