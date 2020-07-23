@@ -103,7 +103,7 @@ const updateUI = async (data) => {
   }
 };
 
-const createElementMultipleWeather = (parent, data, total) => {
+const createElementMultipleWeather = (parent, data, total = 16) => {
   // Div display if total is < or = 16
   parent.style.display = "block";
 
@@ -116,15 +116,28 @@ const createElementMultipleWeather = (parent, data, total) => {
   // Append heading to parent
   parent.appendChild(headingparent);
 
+  // create div for hold all created divs for trip day/days
+  const holder = document.createElement("div");
+
   // Loop for attach all need data for weather before and durring the trip
-  for (let index = 1; index <= total; index++) {
+  for (let index = 0; index < total; index++) {
     // create div to hold element for every day
     const div = document.createElement("div");
+
+    // create div for hold temperature information
+    const infoTemp = document.createElement("div");
+
+    // create div for hold icon
+    const weatherIcon = document.createElement("div");
 
     // create paragraphs for date, high and low temperature provide from weatherbit API
     const paragraphDate = document.createElement("p");
     const paragraphHigh = document.createElement("p");
     const paragraphLow = document.createElement("p");
+
+    // weather icon
+    const icon = document.createElement("img");
+    const iconDesc = document.createElement("p");
 
     // add text to paragraphs
     paragraphDate.innerHTML = data[index].datetime;
@@ -136,14 +149,34 @@ const createElementMultipleWeather = (parent, data, total) => {
     paragraphHigh.setAttribute("id", `high-${data[index].datetime}`);
     paragraphLow.setAttribute("id", `low-${data[index].datetime}`);
 
-    // append every paragrap to div which separate days
-    div.appendChild(paragraphDate);
-    div.appendChild(paragraphHigh);
-    div.appendChild(paragraphLow);
+    // append every paragrap to div (infoTemp) which separate days
+    infoTemp.appendChild(paragraphDate);
+    infoTemp.appendChild(paragraphHigh);
+    infoTemp.appendChild(paragraphLow);
 
-    // append every div holder to parent div
-    parent.appendChild(div);
+    // add icon path to image src
+    icon.src = `https://www.weatherbit.io/static/img/icons/${data[index].weather.icon}.png`;
+
+    // add icon description to image alt
+    icon.alt = data[index].weather.description;
+
+    icon.style.width = "40%";
+
+    iconDesc.innerHTML = data[index].weather.description;
+
+    // append image icon to div
+    weatherIcon.appendChild(icon);
+    weatherIcon.appendChild(iconDesc);
+
+    // append divs for temp information and icon
+    div.appendChild(infoTemp);
+    div.appendChild(weatherIcon);
+
+    // append all divs to holder div
+    holder.appendChild(div);
   }
+  // append div holder to parent div
+  parent.appendChild(holder);
 };
 
 // export function
