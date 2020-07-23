@@ -29,10 +29,9 @@ body {
 
 // Print button
 #print {
-  display: none;
+  display: block;
   background-color: transparent;
   box-shadow: 1px 1px 10px #61acb8;
-  // font-weight: bold;
   border: 1px solid #fff;
   border-radius: 10px;
   padding: 10px;
@@ -40,12 +39,12 @@ body {
   top: 10px;
   right: 10px;
   font: bold 15px "Comic Neue", cursive;
-}
 
-#print:hover {
-  background-color: #61acb8;
-  border-color: #61acb8;
-  color: #fff;
+  &:hover {
+    background-color: #61acb8;
+    border-color: #61acb8;
+    color: #fff;
+  }
 }
 
 /* Header */
@@ -198,16 +197,27 @@ body {
     margin: 10px 0;
   }
 
-  div {
-    border-top: 1px solid #000;
-  }
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 
-  div p {
-    line-height: 45px;
-  }
+    & > div {
+      border: 1px solid #000;
+      width: 150px;
+      height: 320px;
+      padding: 10px;
+      margin: 10px;
+    }
 
-  div p:first-child {
-    font-weight: bold;
+    div p {
+      line-height: 45px;
+    }
+
+    div p:first-child {
+      font-weight: bold;
+    }
   }
 }
 
@@ -224,6 +234,49 @@ body {
 #favorite-trip {
   text-align: center;
   font-family: "Girassol", cursive;
+}
+
+// TODO list
+#list-trip {
+  width: 70%;
+  margin: 20px auto;
+
+  & > li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #86d4e2;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+
+    & > div {
+      width: 90%;
+
+      p {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      li {
+        list-style-type: disc;
+      }
+    }
+    button {
+      color: #e00202;
+      font-weight: bold;
+      background-color: #ecd3d3;
+      border: 1px solid #f17373;
+      box-shadow: 1px 1px 1px #a05656;
+      border-radius: 5px;
+      padding: 5px;
+      width: 30px;
+      align-items: center;
+
+      &:hover {
+        background-color: #f17373;
+        color: #000;
+      }
+    }
+  }
 }
 
 /* Media */
@@ -246,7 +299,7 @@ body {
     }
   }
   #temp-for-multiple-days {
-    width: 30%;
+    // width: 30%;
   }
 }
 
