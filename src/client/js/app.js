@@ -55,6 +55,16 @@ function destinationInfo() {
   }
 }
 
+function destinationInfoLocalStorage() {
+  // loading image
+  document.getElementById("loading").style.display = "block";
+  const last = dataStorage.length - 1;
+  city.value = dataStorage[last].city;
+  dateStart.value = dataStorage[last].start;
+  dateEnd.value = dataStorage[last].end;
+  Client.updateUI(dataStorage);
+}
+
 // destinationSave function collect functions above starting from getData and wiht Promises (and key word then) add postData and updateUI.
 function destinationSave() {
   // loading image
@@ -68,9 +78,6 @@ function destinationSave() {
       })
       .then((data) => {
         postData(`${localhost}saveData`, data);
-        city.value = dataStorage[0].city;
-        dateStart.value = dataStorage[0].start;
-        dateEnd.value = dataStorage[0].end;
         Client.updateUI(dataStorage);
       })
       .catch((err) => console.error(err));
@@ -100,4 +107,4 @@ function destinationSave() {
   }
 }
 
-export { destinationInfo, destinationSave };
+export { destinationInfo, destinationInfoLocalStorage, destinationSave };
