@@ -16,6 +16,8 @@ In this project are used:
 - JestJS
 - Supertest
 
+---
+
 ### Getting started
 
 To view and test the project need to download in .zip format or clone it repository.
@@ -58,6 +60,8 @@ In a new terminal tab (in the same directory) run server with:
 npm start
 ```
 
+---
+
 ### Extends
 
 The following extend have been implemented:
@@ -70,3 +74,43 @@ The following extend have been implemented:
 - Allow user to Print their trip and/or export to PDF.
 - Allow the user to add a todo list and/or packing list for their trip.
 - Allow the user to remove the trip.
+
+---
+
+### Screenshots
+
+---
+
+<div align="center">
+
+#### Homepage
+
+![Homepage](src/client/media/screenshots/home.png)
+
+---
+
+#### Search Destination
+
+![Search Destination](src/client/media/screenshots/info-destination.png)
+
+---
+
+#### Search Destination
+
+![Search Destination ](src/client/media/screenshots/info-destination-more-days.png)
+
+---
+
+#### Print Destination
+
+![Print Destination ](src/client/media/screenshots/print.png)
+
+---
+
+#### Favorite Destinations
+
+![Favorite Destinations ](src/client/media/screenshots/favorite-trip.png)
+
+---
+
+</div>
